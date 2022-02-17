@@ -17,11 +17,11 @@
               Places
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="https://www.wikipedia.com">Trivandrum</a></li>
-              <li><a class="dropdown-item" href="https://www.wikipedia.com">kollam</a></li>
-              <li><a class="dropdown-item" href=https://www.wikipedia.com">Kozhikode</a></li>
-              <li><a class="dropdown-item" href="https://www.wikipedia.com">Trissur</a></li>
-              <li><a class="dropdown-item" href="https://www.wikipedia.com">Kottayam</a></li>
+
+              {% for district in district_list %} 
+                  <li><a class="dropdown-item" href="{% url 'cake_shop:cake_list_places' %}?district={{ district.name }}">{{ district.name }}</a></li>
+              {% endfor %}
+
             </ul>
           </li>
            <li>

@@ -3,8 +3,9 @@
 {% block content %}
 <div class="login">
     <h3>Login Page</h3>
-        <form action="{% url 'cake_shop:cake_order_page' %}" method="POST">
+        <form action="" method="POST">
             {% csrf_token %}
+                {{ form.errors }}
                 <input type="text" name="username" placeholder="username" required style="margin:2%";>
                 <br>
                 <input type="text" name="password" placeholder="password" required style="margin-bottom:2%;">

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+    <h1 style="text-align: center;">Places in {{ request.GET.district}}</h1>
+
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <ul>
+            {% for place in place_list %}
+                <li>{{ place.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
