@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {{product.description| truncatewords:155}}
+{% endblock %}
+
+{% block title %}
+    {% if product %}
+        {{product.name}}-la rosetta_zain_bakers
+    {% endif %}
+{% endblock %}
+{% block content %}
+<div>
+  <div>
+      <p>
+          <a href="{% url 'cake:cakeprodct' %}">Home</a>|
+          <a href="{{product.category.get.url}}">{{product.category}}|</a>
+          {{product.name}}
+      </p>
+  </div>
+</div>
+<br>
+<div>
+    <div>
+        <img src="{{product.img.url}}">alt={{cake_list.name}}
+  </div>
+</div>
+<div>
+  <div>
+    <h1>{{product.name}}</h1>
+    <p>${{product.price}}</p>
+  </div>
+</div>

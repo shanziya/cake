@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+        {{category.description| truncatewords:155}}
+    {% else %}
+        Welcome To la_rosetta
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if category %}
+        {{category.name}}-la rosetta_zain_bakers
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="mx_auto">
+      {% if category %}
+          <img class="my_image" src="{{category.img.url}}" alt="{{category.name}}">
+  </div>
+  <br>
+  <div>
+     <h1 class="text-center">{{category.name}}</h1>
+  </div>
+      {% else %}
+          <div>
+            <img src="{% static 'img/cake bannr.png' %}" alt="our product" width="1250px;">
+          </div>
+      {% endif %}
+        <div class="button" style="text-align:center;">
+            <a href="{% url 'cake_shop:login' %}">
+           <button style="border: 1px solid black;border-radius: 25px;margin: 20px;font-size: 16px;background: aquamarine;padding: 10px 34px 10px 42px;">
+               For Booking</button></a>
+        </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/cake.iml" filepath="$PROJECT_DIR$/.idea/cake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../ecommerce/ecommerceproject/.idea/ecommerceproject.iml" filepath="$PROJECT_DIR$/../../ecommerce/ecommerceproject/.idea/ecommerceproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../inmakes_product_folder/movieproject/.idea/movieproject.iml" filepath="$PROJECT_DIR$/../../inmakes_product_folder/movieproject/.idea/movieproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../project/inmakes/travelproject/travelproject/.idea/travelproject.iml" filepath="$PROJECT_DIR$/../../project/inmakes/travelproject/travelproject/.idea/travelproject.iml" />
+    </modules>
+  </component>
+</project>

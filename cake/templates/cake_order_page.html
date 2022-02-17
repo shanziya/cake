@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="register">
+    <h1>cake order page</h1>
+       <form action="register" method="post">
+            {% csrf_token %}
+              <input type="text" name="username" placeholder="username">
+              <br>
+              <input type="text" name="phone_number" placeholder="phone_number">
+              <br>
+              <input type="text" name="address" placeholder="address">
+              <br>
+              <input type="text" name="district" placeholder="district">
+                 <select>
+                     <option disabled="" selected>-----</option>
+                     <option>tvm</option>
+                     <option>kollam</option>
+                     <option>kozhikode</option>
+                      <option>alapuzha</option>
+                 </select>
+              <br>
+              <a href="{% url 'cake_shop:cake_list_page' %}">submit</a>
+       </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1 style="text-align: center;">cake list page</h1>
+<form style="text-align:center;" action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="cake list" placeholder="cake list">
+        <select>
+            <option disabled="" selected>-----</option>
+            <option>vancho</option>
+            <option>whiteforest</option>
+            <option>black forest</option>
+            <option>red velvet</option>
+        </select>
+        <br>
+        <a class="button" href="">submit</a>
+        <a class="submit" href="">logout</a>
+       </form>
+  </div>
+{% endblock %}
