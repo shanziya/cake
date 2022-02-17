@@ -1,15 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    
-    <h1 style="text-align: center;">Places in {{ request.GET.district}}</h1>
+<style>
+    .place_list {
+        list-style-type: none;
+    }
 
-    <div style="display: flex; align-items: center; justify-content: center;">
-        <ul>
-            {% for place in place_list %}
-                <li>{{ place.name }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+    .place_list li {
+        text-decoration: none;
+        color: rgb(29, 27, 27);
+        font: 25px/1 Helvetica, Verdana, sans-serif;
+        text-transform: uppercase;
+        margin: 5px;
+    }
+
+    .place_list li:hover {
+        color: #666;
+    }
+
+</style>
+<h1 style="text-align: center;">Places in {{ request.GET.district}}</h1>
+
+<div style="display: flex; align-items: center; justify-content: center;">
+    <ul class="place_list">
+        {% for place in place_list %}
+        <li>{{ place.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
 
 {% endblock %}
