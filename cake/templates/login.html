@@ -3,14 +3,15 @@
 {% block content %}
 <div class="login">
     <h3>Login Page</h3>
-        <form action="login" method="POST">
+        <form action="{% url 'cake_shop:cake_order_page' %}" method="POST">
             {% csrf_token %}
-                <input type="text" name="username" placeholder="username" style="margin:2%";>
-               <br>
-                <input type="text" name="password" placeholder="password" style="margin-bottom:2%;">
-               <br>
-                <a class="login" href="{% url 'cake_shop:cake_order_page' %}">login</a>
+                <input type="text" name="username" placeholder="username" required style="margin:2%";>
+                <br>
+                <input type="text" name="password" placeholder="password" required style="margin-bottom:2%;">
+                <br>
+                <button type="submit">login</button>
                 <p style="margin:2%;">Don't have an account? <a href="{% url 'cake_shop:register' %}">Register here</a></p>
         </form>
 </div>
+
 {% endblock %}

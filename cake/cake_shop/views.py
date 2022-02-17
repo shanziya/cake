@@ -41,7 +41,9 @@ def login(request):
     context = {'form': form}
     return render(request,'login.html',context)
 
+
 def cake_order_page(request):
+    context = {}
     if request.method == 'POST':
         form = AuthenticationForm(data= request.POST)
         if form.is_valid():
@@ -50,8 +52,9 @@ def cake_order_page(request):
             return redirect('cake_list_page')
     else:
         form = AuthenticationForm()
-        context = {'form': form}
+        context['form'] = form
     return render(request,'cake_order_page.html',context)
+
 
 def cake_list_page(request):
     return render(request, 'cake_list_page.html')
