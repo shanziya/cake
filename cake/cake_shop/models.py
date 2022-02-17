@@ -21,6 +21,7 @@ class Product(models.Model):
     price=models.DecimalField(max_digits=10,decimal_places=2)
     description=models.TextField(blank=True)
     img=models.ImageField(upload_to='product',blank=True)
+
     class Meta:
         ordering=('name',)
         verbose_name='product'
