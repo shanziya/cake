@@ -2,25 +2,66 @@
 {% load static %}
 {% block content %}
 <div class="register">
-    <h1>cake order page</h1>
-       <form action="register" method="post">
-            {% csrf_token %}
-              <input type="text" name="username" placeholder="username">
-              <br>
-              <input type="text" name="phone_number" placeholder="phone_number">
-              <br>
-              <input type="text" name="address" placeholder="address">
-              <br>
-              <input type="text" name="district" placeholder="district">
-                 <select>
-                     <option disabled="" selected>-----</option>
-                     <option>tvm</option>
-                     <option>kollam</option>
-                     <option>kozhikode</option>
-                      <option>alapuzha</option>
-                 </select>
-              <br>
-              <a href="{% url 'cake_shop:cake_list_page' %}">submit</a>
-       </form>
-  </div>
+   <h1>cake order page</h1>
+   <form action="{% url 'cake_shop:cake_list_page' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="username">
+      <br>
+      <input type="text" name="phone_number" placeholder="phone_number">
+      <br>
+      <input type="text" name="address" placeholder="address">
+      <br>
+      <!-- <input type="text" name="district" placeholder="district"> -->
+      <select name="district" id="district">
+         <option disabled="" selected>Select District</option>
+         {% for district in district_list %}
+         <option value="{{ district.name }}">{{ district.name }}</option>
+         {% endfor %}
+      </select>
+      <br>
+
+      <select name="palce" id="places">
+         <option disabled="" selected>Select Place</option>
+         {% for place in place_list %}
+         <option>{{ place.name }}</option>
+         {% endfor %}
+      </select>
+      <br>
+      <button type="submit">Submit</button>
+   </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+   document.getElementById('district').addEventListener('change', function () {
+
+      var opts = {
+         method: 'GET',
+         headers: {}
+      };
+
+      var saveData = $.ajax({
+         type: 'GET',
+         url: {% url 'cake_shop:cake_order_page' %},
+         data: {
+            district: this.value,
+         },
+         success: function (response) {
+            console.log(response.places)
+            var place_el = document.getElementById('places');
+            place_el.innerHTML = "";
+
+            response.places.forEach(function (obj) {
+               console.log(obj);
+               place_el.add(new Option(obj, obj));
+            });
+         }
+      });
+   });
+
+</script>
+
 {% endblock %}
